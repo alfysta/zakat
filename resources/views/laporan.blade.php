@@ -90,7 +90,7 @@
                     <td style="text-align: center;">{{$item->created_at->format('d-m-Y')}}</td>
                     <td>{{strtoupper($item->nama)}}</td>
                     <td style="text-align: center;">{{$item->jiwa}} Orang</td>
-                    <td style="text-align: center;">{{$item->bayar == 'beras' ? number_format($item->beras) . ' Kg' : '-'}}</td>
+                    <td style="text-align: center;">{{$item->bayar == 'beras' ? $item->beras . ' Kg' : '-'}}</td>
                     <td style="text-align: right;">{{$item->bayar == 'uang' ? number_format($item->uang) : '-'}}</td>
                     <td style="text-align: right;">{{number_format($item->infaq)}}</td>
                     <td style="text-align: center;">{{$item->bayar == 'beras' ? $item->sedekah. ' Kg' : '-'}}</td>

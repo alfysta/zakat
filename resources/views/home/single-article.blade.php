@@ -36,8 +36,8 @@
           <div class="col-lg-8">
             <img src="{{$post->images()}}" class="img-fluid" alt="">
             <h3>{{$post->judul}}</h3>
-            <p>
-            {!!$post->body!!}   </p>
+
+            <p>{!!$post->body!!}</p>
           </div>
           <div class="col-lg-4">
 

@@ -10,7 +10,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{route('home.index')}}" class="{{request()->routeIs('home.index') ? 'active' : ''}}">Home<br></a></li>
-          <li><a href="{{route('home.articles')}}" class="{{request()->routeIs('home.articles') ? 'active' : ''}}">Articles</a></li>
+          <li><a href="{{route('home.articles')}}" class="{{request()->routeIs('home.articles') ? 'active' : ''}}">Artikel</a></li>
           <li><a href="{{route('home.penerima')}}" class="{{request()->routeIs('home.penerima') ? 'active' : ''}}">Penerima Zakat</a></li>
           <li><a href="{{route('home.amil')}}" class="{{request()->routeIs('home.amil.*') ? 'active' : ''}}">Amil Zakat</a></li>
         </ul>

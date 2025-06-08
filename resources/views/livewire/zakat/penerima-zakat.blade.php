@@ -1,12 +1,12 @@
 <div>
-    
+
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
 
         <div class="flex flex-col gap-6 my-3">
     <x-auth-header title="{{$page_meta['title']}}" description="{{$page_meta['description']}}" />
 
-    
+
     <!-- Session Status -->
     <x-sweetalert/>
 
@@ -23,14 +23,7 @@
         />
 
         <div class="relative">
-            <flux:input
-                wire:model="alamat"
-                icon="users"
-                :label="__('Alamat')"
-                type="text"
-                required
-                autocomplete="Alamat"
-                :placeholder="__('Alamat')"
+            <flux:input wire:model="alamat" icon="users" :label="__('Alamat')" type="text" required autocomplete="Alamat" :placeholder="__('Alamat')"
             />
         </div>
         <div class="relative">
@@ -42,7 +35,7 @@
                 @endforeach
             </select>
         </div>
-        
+
 
         <div class="flex items-center justify-end">
             <flux:button variant="primary" type="submit" class="w-full">{{ $page_meta['submit'] }}</flux:button>
@@ -52,5 +45,5 @@
     </div>
 
 
-        
+
 </div>

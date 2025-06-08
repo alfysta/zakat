@@ -5,7 +5,7 @@
   <div class="row gy-4">
     <div class="col-lg-4 col-md-6 footer-about">
       <a href="{{route('home.index')}}" class="logo d-flex align-items-center">
-        <span class="sitename">Zakat Fttrah</span>
+        <span class="sitename">Zakat Fitrah</span>
       </a>
       <div class="footer-contact pt-3">
         <p>Desa Mulyoharjo</p>

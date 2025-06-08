@@ -8,14 +8,15 @@
 @push('scripts')
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
     <script>
-      $('#summernote').summernote({
+        $('#summernote').summernote({
         tabsize: 2,
         height: 300,
         toolbar: [
           ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
+          ['font', ['bold', 'underline', 'clear', 'strikethrough', 'superscript', 'subscript']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
           ['table', ['table']],
@@ -61,16 +62,22 @@
                 @endforeach
             </select>
         </div>
-        
-        <flux:input type="file" wire:model="thumbnails" label="Thumbnails" />
 
+        <flux:input type="file" wire:model="thumbnails" label="Thumbnails" />
         @if(is_string($thumbnails))
            <img class="w-100 rounded-lg" src="{{$post->images()}}">
-        @else
-          @if($thumbnails)
+        @elseif($thumbnails)
             <img class="w-100 rounded-lg" src="{{$thumbnails->temporaryUrl()}}">
-          @endif
-        @endif
+         @endif
+
+
+        {{-- @if($thumbnails)
+            <img class="w-100 rounded-lg" src="{{$thumbnails->temporaryUrl()}}">
+         @else
+            <img class="w-100 rounded-lg" src="{{$post->images()}}">
+        @endif --}}
+
+
 
        </div>
 <div>

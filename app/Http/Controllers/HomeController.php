@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Amil;
+use App\Models\Kategori;
 use App\Models\Penerima;
 use App\Models\Post;
 use App\Models\Zakat;
@@ -10,7 +11,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $beras = Zakat::sum('beras');
         $uang = Zakat::sum('uang');
@@ -19,12 +21,14 @@ class HomeController extends Controller
         $kk = Zakat::count('nama');
         $penerima = Penerima::count('nama_penerima');
         $sedekah_uang = Zakat::where('bayar', 'uang')->sum('sedekah');
-        $sedekah_beras= Zakat::where('bayar', 'beras')->sum('sedekah');
+        $sedekah_beras = Zakat::where('bayar', 'beras')->sum('sedekah');
 
         $amil = Amil::latest()->get();
+        $kategori = Kategori::get();
 
         return view('home.index', [
             'articles' => Post::latest()->limit(3)->get(),
+            'kategori' => $kategori,
             'beras' => $beras,
             'uang' => $uang,
             'infaq' => $infaq,
@@ -37,20 +41,20 @@ class HomeController extends Controller
         ]);
     }
 
-    public function amilzakat(){
-        
+    public function amilzakat()
+    {
+
         $amil = Amil::simplePaginate(10);
         return view('home.amil', [
             'amil' => $amil
         ]);
     }
 
-    public function penerima(){
+    public function penerima()
+    {
         $penerima = Penerima::with('kategori')->latest()->simplePaginate(10);
         return view('home.penerima', [
             'penerima' => $penerima
         ]);
     }
-
-
 }

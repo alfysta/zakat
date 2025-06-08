@@ -1,26 +1,17 @@
 <div>
-    
+
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
 
         <div class="flex flex-col gap-6 my-3">
-    <x-auth-header :title="__('Input Data Zakat Fitrah')" :description="__('Silahkan Input data Penyetor Zakat Fitrah dengan Teliti')" />
+    <x-auth-header :title="$page_meta['title']" :description="$page_meta['description']" />
 
     <!-- Session Status -->
 
     <x-sweetalert/>
 
-    <form wire:submit="created" class="mx-4 flex w-1/2 h-1/2 flex-col gap-5">
-        <flux:input
-            wire:model.lazy="nama"
-            :label="__('Nama Penyetor Zakat')"
-            icon="user"
-            type="text"
-            required
-            autofocus
-            autocomplete="Nama "
-            placeholder="Nama Penyetor"
-        />
+    <form wire:submit="{{$page_meta['method']}}" class="mx-4 flex w-1/2 h-1/2 flex-col gap-5">
+        <flux:input wire:model.lazy="nama" :label="__('Nama Penyetor Zakat')" icon="user" type="text" required autofocus autocomplete="Nama " placeholder="Nama Penyetor" />
 
         <div class="relative">
             <flux:input
@@ -45,6 +36,7 @@
                 label="Anda membayar zakat fitrah dengan {{$this->bayar}}"
                 required
                 type="number"
+                step="0.1"
                 autocomplete="Beras"
                 :placeholder="__('Beras (Kg)')"
             />
@@ -98,18 +90,20 @@
         <div>
         @if($this->bayar == 'beras')
         <p class="font-sm">Kewajiban Anda Membayar Zakat Fitrah adalah {{2.5*$jiwa}} Kg.</p>
+        <p class="font-sm">Jumlah Infaq yang harus anda bayarkan adalah Rp. {{number_format(2000*$jiwa)}}</p>
         @elseif($this->bayar)
         <p class="font-sm">Kewajiban Anda Membayar Zakat Fitrah adalah Rp. {{number_format(25000*$jiwa)}}</p>
+        <p class="font-sm">Total Zakat Fitrah dan Infaq adalah Rp. {{number_format(25000*$jiwa + $infaq)}}</p>
         @endif
         </div>
 
         <div class="flex items-center justify-end">
-            <flux:button variant="primary" type="submit" class="w-full">{{ __('Input') }}</flux:button>
+            <flux:button variant="primary" type="submit" class="w-full">{{ $page_meta['submit'] }}</flux:button>
         </div>
     </form>
 </div>
     </div>
 
 
-        
+
 </div>

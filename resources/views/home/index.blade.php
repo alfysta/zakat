@@ -35,7 +35,7 @@
           <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
             <h3>Pentingnya membayar Zakat Fitrah</h3>
             <p class="fst-italic">
-            Membayar zakat fitrah sangat penting karena menyucikan jiwa dari dosa-dosa kecil selama berpuasa dan membantu fakir miskin agar dapat merayakan Idul Fitri dengan layak. Zakat fitrah juga merupakan bentuk syukur atas nikmat Allah dan memperkuat rasa kebersamaan antar sesama muslim. 
+            Membayar zakat fitrah sangat penting karena menyucikan jiwa dari dosa-dosa kecil selama berpuasa dan membantu fakir miskin agar dapat merayakan Idul Fitri dengan layak. Zakat fitrah juga merupakan bentuk syukur atas nikmat Allah dan memperkuat rasa kebersamaan antar sesama muslim.
             </p>
             <ul>
               <li><i class="bi bi-check-circle"></i> <span>Menyucikan Jiwa dan Menyempurnakan Ibadah Puasa.  </span></li>
@@ -121,7 +121,7 @@
             <div class="why-box">
               <h3>Zakat Fitrah dapat berupa</h3>
               <p>
-              Makanan Pokok: Secara tradisional, zakat fitrah diberikan dalam bentuk makanan pokok seperti beras, kurma, atau gandum. Zakat fitrah dalam bentuk makanan pokok yang dikonsumsi sehari-hari, seperti beras. Besarannya sekitar 2,5 kg atau 3,5 liter per jiwa. 
+              Makanan Pokok: Secara tradisional, zakat fitrah diberikan dalam bentuk makanan pokok seperti beras, kurma, atau gandum. Zakat fitrah dalam bentuk makanan pokok yang dikonsumsi sehari-hari, seperti beras. Besarannya sekitar 2,5 kg atau 3,5 liter per jiwa.
               </p>
               <div class="text-center">
                 <a href="#" class="more-btn"><span></span> <i class="bi bi-chevron-right"></i></a>
@@ -145,7 +145,7 @@
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-gem"></i>
                   <h4>Kualitas Makanan Pokok:</h4>
-                  <p>Jika menggunakan makanan pokok (beras), kualitasnya harus sama dengan kualitas beras yang biasa dikonsumsi sehari-hari. 
+                  <p>Jika menggunakan makanan pokok (beras), kualitasnya harus sama dengan kualitas beras yang biasa dikonsumsi sehari-hari.
                   </p>
                 </div>
               </div><!-- End Icon Box -->
@@ -179,62 +179,14 @@
       <div class="container">
 
         <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="features-item">
-              <i class="bi bi-eye" style="color: #ffbb2c;"></i>
-              <h3><a href="" class="stretched-link">Fakir</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="features-item">
-              <i class="bi bi-infinity" style="color: #5578ff;"></i>
-              <h3><a href="" class="stretched-link">Miskin</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="features-item">
-              <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-              <h3><a href="" class="stretched-link">Amil</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="features-item">
-              <i class="bi bi-nut" style="color: #e361ff;"></i>
-              <h3><a href="" class="stretched-link">Muallaf</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="features-item">
-              <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-              <h3><a href="" class="stretched-link">Riqab</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="features-item">
-              <i class="bi bi-star" style="color: #ffa76e;"></i>
-              <h3><a href="" class="stretched-link">Gharim</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-            <div class="features-item">
-              <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-              <h3><a href="" class="stretched-link">Fi Sabilillah</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
-
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-            <div class="features-item">
-              <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-              <h3><a href="" class="stretched-link">Ibnu Sabil</a></h3>
-            </div>
-          </div><!-- End Feature Item -->
+        @foreach ($kategori as $item)
+            <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="features-item">
+                    <i class="{{ $item->icon }}" style="color:{{ $item->color }};"></i>
+                    <h3><a href="#" class="stretched-link">{{ $item->kategori }}</a></h3>
+                    </div>
+                </div>
+        @endforeach
 
         </div>
 

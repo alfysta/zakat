@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Livewire\Posts;
+
 use App\Models\Post;
 use App\Models\PostKategori;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +22,10 @@ class PostEdit extends Component
     public $kategori_id;
 
     #[Validate('image|max:2048')]
-    public $thumbnails;
+    public $thumbnails = "";
 
-    public function mount(Post $post){
+    public function mount(Post $post)
+    {
         $this->postId = $post->id;
         $this->judul = $post->judul;
         $this->body = $post->body;
@@ -34,7 +36,7 @@ class PostEdit extends Component
     public function render()
     {
         $post = Post::find($this->postId);
-        return view('livewire.posts.post-create',[
+        return view('livewire.posts.post-create', [
             'kategori' => PostKategori::get(),
             'post' => $post,
             'page_meta' => [
@@ -47,19 +49,27 @@ class PostEdit extends Component
         ]);
     }
 
-    public function update(){
+    public function update()
+    {
+        $post = Post::find($this->postId);
 
-    $post = Post::find($this->postId);
+        if ($this->thumbnails != NULL) {
+            Storage::delete($post->thumbnails);
+            $images = $this->thumbnails->store('/images/posts');
+        } else {
+            $images = $post->thumbnails;
+        }
 
-       $post->update([
+
+        $post->update([
             'user_id' => Auth::user()->id,
             'judul' => $this->judul,
             'body' => $this->body,
             'kategori_id' => $this->kategori_id,
-            'thumbnails' => $this->thumbnails->store('/images/posts')
+            'thumbnails' => $images,
         ]);
 
         $this->redirectIntended(route('article.index', absolute: false), navigate: true);
-        $this->dispatch('sweetalert', icon: 'success' , title: 'Data Berhasil diupdate' );
+        $this->dispatch('sweetalert', icon: 'success', title: 'Data Berhasil diupdate');
     }
 }
